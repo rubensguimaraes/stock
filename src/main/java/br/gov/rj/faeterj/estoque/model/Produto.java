@@ -1,7 +1,10 @@
 package br.gov.rj.faeterj.estoque.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class Produto {
 
+	@NotBlank
 	private String sku;
 	private String nome;
 	
