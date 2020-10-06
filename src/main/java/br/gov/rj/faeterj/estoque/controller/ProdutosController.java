@@ -15,7 +15,7 @@ import br.gov.rj.faeterj.estoque.model.Produto;
 public class ProdutosController {
 
 	@RequestMapping("/produtos/novo")
-	public String novo() {
+	public String novo(Produto produto) {
 		return "produto/CadastroProduto";
 	}
 	
@@ -23,8 +23,7 @@ public class ProdutosController {
 	public String cadastrar(@Valid Produto produto, BindingResult result, 
 			Model model, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
-			model.addAttribute("mensagem", "Erro no formulário, sku inválido!");
-			return "produto/CadastroProduto";
+			return novo(produto);
 		}
 		
 		// Salvar no banco de dados...
