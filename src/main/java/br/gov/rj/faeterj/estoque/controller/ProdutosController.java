@@ -2,6 +2,8 @@ package br.gov.rj.faeterj.estoque.controller;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,9 +15,14 @@ import br.gov.rj.faeterj.estoque.model.Produto;
 
 @Controller
 public class ProdutosController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ProdutosController.class);	
 
 	@RequestMapping("/produtos/novo")
 	public String novo(Produto produto) {
+		logger.error("Aqui é log nível erro!");
+		logger.info("Aqui é um log nível info");		
+
 		return "produto/CadastroProduto";
 	}
 	
